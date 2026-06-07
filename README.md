@@ -8,6 +8,7 @@ This game strips away heavy commercial game engines like unity to focus on perfo
 The core systems ere built from the ground up to showcase algorithm design and optimization:
 
 * **Procedural Matrix Generation:** The tracks aren't hand drawn. An algorithm translates 10 digit seeds into a playable 2D matrix array, ensuring an infinite number of unique layouts.
+* **Surface-Based Physics:** The engine handles different terrain types dynamically. It calculates grip coefficients based on the surface under the car, requiring the player to adjust their driving style for different surfaces like gravel, ice, roads.
 * **Custom Drift Physics:** No pre made physics engines. The forward velocity, drifting mechanic, and frame independent momentum as built entirely using C++ standard math.
 * **Ghost Data:** The system captures your coordinates and rotation data every single frame. If a new lap record is set, the engine reads that array to spawn a Ghost Car that perfectly replays your exact run.
 * **Time Dilation (Slow-Mo):** A custom delta time matrix allows the player to hold Shift and instantly drop the game simulation speed to 35%, scaling the camera zoom, physics, and particle effects.
@@ -51,4 +52,16 @@ cmake --build .
 .\midnight-drift.exe       
 ```
 
-If you get a 'missing .dll' error, copy the files from your SFML bin/ folder and paste them into your build/ folder where the .exe was created.
+Note: If you get a 'missing .dll' error, copy the files from your SFML bin/ folder and paste them into your build/ folder where the .exe was created.
+
+## Future Goals
+
+* Multiplayer Mode: Implementing UDP socket communication for real time local network racing.
+
+* Track Editor: A drag and drop tool to let players design their own circuit layouts.
+
+* AI Opponents: Programming basic autonomous agents that can navigate the track alongside the player.
+  
+* Web Integration: Extending the build system to support WebAssembly so the game can be played directly in a browser.
+
+* Career Mode: Building a campaign with locked tracks and vehicle upgrades based on lap times.
