@@ -1,0 +1,54 @@
+# Midnight Drift 
+**A high-speed, procedurally generated retro arcade raceing game built entirely in C++ and SFML.**
+
+This game strips away heavy commercial game engines like unity to focus on performance, custom physics, math, and infinite replayability. It features time bending mechanics, drift handling, and a clone system that lets you race your own past personal record for a track.
+
+## Technical highlights
+
+The core systems ere built from the ground up to showcase algorithm design and optimization:
+
+* **Procedural Matrix Generation:** The tracks aren't hand drawn. An algorithm translates 10 digit seeds into a playable 2D matrix array, ensuring an infinite number of unique layouts.
+* **Custom Drift Physics:** No pre made physics engines. The forward velocity, drifting mechanic, and frame independent momentum as built entirely using C++ standard math.
+* **Ghost Data:** The system captures your coordinates and rotation data every single frame. If a new lap record is set, the engine reads that array to spawn a Ghost Car that perfectly replays your exact run.
+* **Time Dilation (Slow-Mo):** A custom delta time matrix allows the player to hold Shift and instantly drop the game simulation speed to 35%, scaling the camera zoom, physics, and particle effects.
+* **Optimized Rendering:** Built on top of SFML for hardware accelerated 2D graphics, using dynamic camera lerping, collision shake, and glowing reactive particle trails.
+
+## Tech stack
+* **Language:** C++
+* **Graphics API:** SFML (Simple and Fast Multimedia Library)
+* **Build System:** CMake 
+
+## How to play
+| Action | Keybinding |
+| :--- | :--- |
+| **Accelerate / Brake** | `W` / `S` |
+| **Steer** | `A` / `D` |
+| **Engage Slow-Mo Matrix**| Hold `Left Shift` |
+| **Save Track Seed** | Press `M` (While racing) |
+| **Quick Restart** | Press `R` (While racing) |
+
+## How to run
+
+Make sure CMake and SFML are installed in your system to build the game.
+Donload the latest versions from here.
+**CMake (Build Tool):** https://cmake.org/download/
+**SFML (Graphics Library):** https://www.sfml-dev.org/download/
+
+Once the tools above are installed, open your terminal in the midnight-drift directory.
+
+**Using the Terminal:**
+Open your terminal in the root `midnight-drift` directory and run:
+
+```bash
+#Generate the build environment
+mkdir build && cd build
+cmake ..
+
+#Compile the source code
+cmake --build .
+
+#Launch the game
+.\midnight-drift.exe       
+```
+
+If you get a 'missing .dll' error, copy the files from your SFML bin/ folder and paste them into your build/ folder where the .exe was created.
