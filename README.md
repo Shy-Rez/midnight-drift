@@ -36,6 +36,22 @@ The core systems ere built from the ground up to showcase algorithm design and o
 * The ghost appears after your first completed lap. Treat it as a braking and entry reference.
 * Slow-mo scales the lap timer alongside the physics, it is a skill tool gto navigate difficult portions.
 
+## Project structure
+
+```text
+midnight-drift/
+├── src/                  # Core source code and headers
+│   ├── main.cpp          # Main game loop, state machine, and UI
+│   ├── car.cpp / .h      # Vehicle physics and ghost car memory
+│   ├── track.cpp / .h    # Procedural map generation algorithms
+│   ├── physics.h         # Advanced math, lerping, and vector logic
+│   ├── hud.cpp / .h      # Minimap, timers, and stylized text rendering
+│   ├── fx.h              # Particle systems (sparks, flames, tire marks)
+│   └── constants.h       # Global configuration (TILE sizes, bounds)
+├── CMakeLists.txt        # Build instructions
+└── .gitignore            # Excludes binaries and local settings
+```
+
 ## How to run
 
 Make sure CMake and SFML are installed in your system to build the game.
