@@ -1,7 +1,7 @@
 # Midnight Drift 
 **A high-speed, procedurally generated retro arcade raceing game built entirely in C++ and SFML.**
 
-This game strips away heavy commercial game engines like unity to focus on performance, custom physics, math, and infinite replayability. It features time bending mechanics, drift handling, and a clone system that lets you race your own past personal record for a track.
+This game focuses on performance, custom physics, math, and infinite replayability. It features time bending mechanics, drift handling, and a clone system that lets you race your own past personal record for a track.
 
 ## Technical highlights
 
