@@ -7,12 +7,12 @@ This game focuses on performance, custom physics, math, and infinite replayabili
 
 The core systems ere built from the ground up to showcase algorithm design and optimization:
 
-* **Procedural Matrix Generation:** The tracks aren't hand drawn. An algorithm translates 10 digit seeds into a playable 2D matrix array, ensuring an infinite number of unique layouts.
-* **Surface-Based Physics:** The engine handles different terrain types dynamically. It calculates grip coefficients based on the surface under the car, requiring the player to adjust their driving style for different surfaces like gravel, ice, roads.
-* **Custom Drift Physics:** No pre made physics engines. The forward velocity, drifting mechanic, and frame independent momentum as built entirely using C++ standard math.
-* **Ghost Data:** The system captures your coordinates and rotation data every single frame. If a new lap record is set, the engine reads that array to spawn a Ghost Car that perfectly replays your exact run.
+* **Procedural Matrix Generation:** The tracks aren't hand drawn. An algorithm translates 10 digit seeds into a playable 2D matrix array, ensuring an infinite number of unique layouts. The same seed always produces the same track on any machine.
+* **Surface-Based Physics:** The engine handles different terrain types dynamically. It calculates grip coefficients based on the surface under the car, requiring the player to adjust their driving style for different surfaces. Asphalt allows long controlled drifts, ice offers near zero lateral correction, sticky surfaces snap the car back to its line, and gravel creates loose unpredictable slides.
+* **Custom Drift Physics:** No pre built physics engines. The forward velocity, drifting mechanic, and frame independent momentum as built entirely using C++ standard math.
+* **Ghost Replay System:** The system captures your coordinates and rotation data every single frame. When a personal best is set, that buffer is promoted and used to drive a translucent ghost car on subsequent laps, a perfect replay of your fastest run with no physics overhead.
 * **Time Dilation (Slow-Mo):** A custom delta time matrix allows the player to hold Shift and instantly drop the game simulation speed to 35%, scaling the camera zoom, physics, and particle effects.
-* **Optimized Rendering:** Built on top of SFML for hardware accelerated 2D graphics, using dynamic camera lerping, collision shake, and glowing reactive particle trails.
+* **Optimized Rendering:** The tile grid is never iterated in full. Each frame visits only the tiles within a viewport-sized window. An underglow fades quadratically from the car position, calculating per-tile color boosts only within a fixed radius.
 
 ## Tech stack
 * **Language:** C++
@@ -27,6 +27,14 @@ The core systems ere built from the ground up to showcase algorithm design and o
 | **Engage Slow-Mo Matrix**| Hold `Left Shift` |
 | **Save Track Seed** | Press `M` (While racing) |
 | **Quick Restart** | Press `R` (While racing) |
+
+### Tips:
+
+* Brake before the apex, not during. The drift model rewards early corner entry.
+* Ice sections have almost no lateral recovery steer into the slide before it starts.
+* Sticky patches can be used deliberately to cut tight corners without spinning out.
+* The ghost appears after your first completed lap. Treat it as a braking and entry reference.
+* Slow-mo scales the lap timer alongside the physics, it is a skill tool gto navigate difficult portions.
 
 ## How to run
 
