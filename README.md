@@ -47,9 +47,10 @@ midnight-drift/
 │   ├── physics.h         # Advanced math, lerping, and vector logic
 │   ├── hud.cpp / .h      # Minimap, timers, and stylized text rendering
 │   ├── fx.h              # Particle systems (sparks, flames, tire marks)
-│   └── constants.h       # Global configuration (TILE sizes, bounds)
+│   └── constants.h       # Global configurations
 ├── CMakeLists.txt        # Build instructions
-└── .gitignore            # Excludes binaries and local settings
+├── README.md
+└── .gitignore           
 ```
 
 ## How to run
